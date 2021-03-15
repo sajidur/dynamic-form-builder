@@ -16,6 +16,7 @@ exports.FormController = void 0;
 const common_1 = require("@nestjs/common");
 const form_service_1 = require("./form.service");
 const form_model_1 = require("./form.model");
+const swagger_1 = require("@nestjs/swagger");
 let FormController = class FormController {
     constructor(formService) {
         this.formService = formService;
@@ -61,6 +62,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "createEmployee", null);
 FormController = __decorate([
+    swagger_1.ApiTags('Form API'),
     common_1.Controller(),
     __metadata("design:paramtypes", [form_service_1.FormService])
 ], FormController);

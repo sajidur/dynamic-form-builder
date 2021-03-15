@@ -1,7 +1,14 @@
 import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { FormService } from './form.service';
 import { formModel } from './form.model';
+import {
+    ApiBearerAuth,
+    ApiOperation,
+    ApiResponse,
+    ApiTags,
+  } from '@nestjs/swagger';
 
+@ApiTags('Form API')
 @Controller()
 export class FormController {
     

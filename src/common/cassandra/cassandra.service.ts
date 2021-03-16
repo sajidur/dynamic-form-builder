@@ -7,10 +7,10 @@ export class CassandraService {
     mapper: mapping.Mapper;
     private createClient() {
         this.client = new Client({
-            contactPoints: ['0.0.0.0'],
-            keyspace: 'employeedb',
+            contactPoints: ['116.68.207.82'],
+            keyspace: 'form_builder',
             localDataCenter: 'datacenter1',
-            authProvider: new auth.PlainTextAuthProvider('cassandra', 'cassandra')
+            authProvider: new auth.PlainTextAuthProvider('cassandra', 'C@$$andrA')
         });
     }
     

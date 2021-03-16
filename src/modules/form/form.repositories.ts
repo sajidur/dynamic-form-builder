@@ -13,14 +13,14 @@ export class FormRepository implements OnModuleInit {
     onModuleInit() {
         const mappingOptions: mapping.MappingOptions = {
             models: {
-                'form': {
-                    tables: ['form'],
+                'formModel': {
+                    tables: ['forms'],
                     mappings: new mapping.UnderscoreCqlToCamelCaseMappings
                 }
             }
         }
 
-        this.formMapper = this.cassandraService.createMapper(mappingOptions).forModel('form');
+        this.formMapper = this.cassandraService.createMapper(mappingOptions).forModel('formModel');
     }
 
     async getForm() {

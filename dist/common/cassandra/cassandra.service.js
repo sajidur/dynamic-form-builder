@@ -12,10 +12,10 @@ const cassandra_driver_1 = require("cassandra-driver");
 let CassandraService = class CassandraService {
     createClient() {
         this.client = new cassandra_driver_1.Client({
-            contactPoints: ['0.0.0.0'],
-            keyspace: 'employeedb',
+            contactPoints: ['116.68.207.82'],
+            keyspace: 'form_builder',
             localDataCenter: 'datacenter1',
-            authProvider: new cassandra_driver_1.auth.PlainTextAuthProvider('cassandra', 'cassandra')
+            authProvider: new cassandra_driver_1.auth.PlainTextAuthProvider('cassandra', 'C@$$andrA')
         });
     }
     createMapper(mappingOptions) {

@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const cassandra_module_1 = require("./common/cassandra/cassandra.module");
-const form_module_1 = require("./form/form.module");
+const form_module_1 = require("./modules/form/form.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([

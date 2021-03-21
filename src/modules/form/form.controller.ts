@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put,Req  } from '@nestjs/common';
 import { FormService } from './form.service';
 import { forms } from './form.Entity';
 import {
@@ -9,7 +9,7 @@ import {
   } from '@nestjs/swagger';
 
 @ApiTags('Form API')
-@Controller()
+@Controller('form')
 export class FormController {
     
     constructor(private formService: FormService){}
@@ -23,9 +23,12 @@ export class FormController {
     async getById(@Param('id') id: number) {
         return this.formService.getForm();
     }
-
+    @Put('publish/:id')
+    async publish(@Param('id') id: string) {
+        return "Form published sucess";
+    }
     @Post('create')
-    async create(form: forms) {
+    async create(@Req() form: forms) {
         return this.formService.createForm(form);
     }
 }

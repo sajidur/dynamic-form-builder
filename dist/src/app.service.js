@@ -21,20 +21,10 @@ let AppService = class AppService {
         this.connection = connection;
         this.formModel = formModel;
     }
-    async create(_formDto) {
-        const form = new this.formModel(_formDto);
-        return await form.saveAsync();
-    }
-    async findById(id) {
-        if (typeof id === 'string') {
-            id = express_cassandra_1.uuid(id);
-        }
-        return await this.formModel.findOneAsync({ id }, { raw: true });
-    }
 };
 AppService = __decorate([
     common_1.Injectable(),
-    __param(0, express_cassandra_1.InjectConnection('test2')),
+    __param(0, express_cassandra_1.InjectConnection('dbcon')),
     __param(1, express_cassandra_1.InjectModel(form_Entity_1.forms)),
     __metadata("design:paramtypes", [Object, Object])
 ], AppService);

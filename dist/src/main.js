@@ -15,7 +15,11 @@ async function bootstrap() {
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api', app, document);
     await app.listen(3000);
-    console.log(`Application is running on: ${await app.getUrl()}`);
+    console.log(`Application is running on : ${await app.getUrl()}`);
+    if (module.hot) {
+        module.hot.accept();
+        module.hot.dispose(() => app.close());
+    }
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

@@ -27,6 +27,9 @@ let FormController = class FormController {
     async getById(id) {
         return this.formService.getForm();
     }
+    async publish(id) {
+        return "Form published sucess";
+    }
     async create(form) {
         return this.formService.createForm(form);
     }
@@ -45,14 +48,22 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "getById", null);
 __decorate([
+    common_1.Put('forms/publish/:id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], FormController.prototype, "publish", null);
+__decorate([
     common_1.Post('create'),
+    __param(0, common_1.Req()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [form_Entity_1.forms]),
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "create", null);
 FormController = __decorate([
     swagger_1.ApiTags('Form API'),
-    common_1.Controller(),
+    common_1.Controller('form'),
     __metadata("design:paramtypes", [form_service_1.FormService])
 ], FormController);
 exports.FormController = FormController;

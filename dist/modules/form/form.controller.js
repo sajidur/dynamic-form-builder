@@ -15,31 +15,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormController = void 0;
 const common_1 = require("@nestjs/common");
 const form_service_1 = require("./form.service");
-const form_model_1 = require("./form.model");
+const form_Entity_1 = require("./form.Entity");
 const swagger_1 = require("@nestjs/swagger");
 let FormController = class FormController {
     constructor(formService) {
         this.formService = formService;
     }
-    async getForm() {
+    async getAllForm() {
         return this.formService.getForm();
     }
     async getById(id) {
-        return this.formService.getById(id);
+        return this.formService.getForm();
     }
-    async updateEmployeeById(id, form) {
-        return this.formService.updateFormName(id, form.form_name);
-    }
-    async createEmployee(form) {
+    async create(form) {
         return this.formService.createForm(form);
     }
 };
 __decorate([
-    common_1.Get('forms'),
+    common_1.Get('getAll'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], FormController.prototype, "getForm", null);
+], FormController.prototype, "getAllForm", null);
 __decorate([
     common_1.Get('forms/:id'),
     __param(0, common_1.Param('id')),
@@ -48,19 +45,11 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "getById", null);
 __decorate([
-    common_1.Put('forms/:id'),
-    __param(0, common_1.Param('id')), __param(1, common_1.Body()),
+    common_1.Post('create'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, form_model_1.formModel]),
+    __metadata("design:paramtypes", [form_Entity_1.forms]),
     __metadata("design:returntype", Promise)
-], FormController.prototype, "updateEmployeeById", null);
-__decorate([
-    common_1.Post('forms'),
-    __param(0, common_1.Body()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [form_model_1.formModel]),
-    __metadata("design:returntype", Promise)
-], FormController.prototype, "createEmployee", null);
+], FormController.prototype, "create", null);
 FormController = __decorate([
     swagger_1.ApiTags('Form API'),
     common_1.Controller(),

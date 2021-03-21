@@ -1,10 +1,9 @@
 import { FormService } from './form.service';
-import { formModel } from './form.model';
+import { forms } from './form.Entity';
 export declare class FormController {
     private formService;
     constructor(formService: FormService);
-    getForm(): Promise<formModel[]>;
-    getById(id: number): Promise<formModel[]>;
-    updateEmployeeById(id: number, form: formModel): Promise<formModel[]>;
-    createEmployee(form: formModel): Promise<formModel[]>;
+    getAllForm(): Promise<forms[]>;
+    getById(id: number): Promise<forms[]>;
+    create(form: forms): Promise<forms>;
 }

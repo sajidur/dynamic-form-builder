@@ -8,30 +8,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormService = void 0;
 const common_1 = require("@nestjs/common");
-const form_repositories_1 = require("./form.repositories");
+const form_Entity_1 = require("./form.Entity");
+const express_cassandra_1 = require("@iaminfinity/express-cassandra");
 let FormService = class FormService {
-    constructor(formRepository) {
-        this.formRepository = formRepository;
+    constructor(connection, forms) {
+        this.connection = connection;
+        this.forms = forms;
     }
     async getForm() {
-        return this.formRepository.getForm();
+        return await this.forms.findAsync({}, { raw: true, allow_filtering: true });
     }
-    async getById(id) {
-        return this.formRepository.getEmployeeById(id);
+    async findById(id) {
+        if (typeof id === 'string') {
+            id = express_cassandra_1.uuid(id);
+        }
+        return await this.forms.findOneAsync({ id }, { raw: true });
     }
     async createForm(form) {
-        return this.formRepository.createForm(form);
+        const formModel = new this.forms(form);
+        return await formModel.saveAsync();
     }
     async updateFormName(id, name) {
-        return this.formRepository.updateFormName(id, name);
+        var formObj = new form_Entity_1.forms();
+        const form = new this.forms(formObj);
+        return await form.saveAsync();
     }
 };
 FormService = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [form_repositories_1.FormRepository])
+    __param(0, express_cassandra_1.InjectConnection()),
+    __param(1, express_cassandra_1.InjectModel(form_Entity_1.forms)),
+    __metadata("design:paramtypes", [Object, Object])
 ], FormService);
 exports.FormService = FormService;
 //# sourceMappingURL=form.service.js.map

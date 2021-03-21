@@ -8,46 +8,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormRepository = void 0;
 const common_1 = require("@nestjs/common");
-const cassandra_driver_1 = require("cassandra-driver");
 const form_model_1 = require("./form.model");
 const cassandra_service_1 = require("../../common/cassandra/cassandra.service");
+const express_cassandra_1 = require("@iaminfinity/express-cassandra");
 let FormRepository = class FormRepository {
-    constructor(cassandraService) {
-        this.cassandraService = cassandraService;
-    }
-    onModuleInit() {
-        const mappingOptions = {
-            models: {
-                'formModel': {
-                    tables: ['forms'],
-                    mappings: new cassandra_driver_1.mapping.UnderscoreCqlToCamelCaseMappings
-                }
-            }
-        };
-        this.formMapper = this.cassandraService.createMapper(mappingOptions).forModel('formModel');
+    constructor(connection, forms) {
+        this.connection = connection;
+        this.forms = forms;
     }
     async getForm() {
-        return (await this.formMapper.findAll()).toArray();
+        return (await this.forms.findAll()).toArray();
     }
-    async getEmployeeById(id) {
-        return (await this.formMapper.find({ id: id })).toArray();
+    async findById(id) {
+        if (typeof id === 'string') {
+            id = express_cassandra_1.uuid(id);
+        }
+        return await this.forms.findOneAsync({ id }, { raw: true });
     }
     async createForm(form) {
-        return (await this.formMapper.insert(form)).toArray();
+        return (await this.forms.insert(form)).toArray();
     }
     async updateFormName(id, name) {
-        const form = new form_model_1.formModel();
-        form.id = id;
-        form.form_name = name;
-        return (await this.formMapper.update(form, { fields: ['form_name', 'form_name'], ifExists: true })).toArray();
+        var formObj = new form_model_1.forms();
+        const form = new this.forms(formObj);
+        return await form.saveAsync();
     }
 };
 FormRepository = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [cassandra_service_1.CassandraService])
+    __param(0, express_cassandra_1.InjectConnection()),
+    __param(1, express_cassandra_1.InjectModel(form_model_1.forms)),
+    __metadata("design:paramtypes", [Object, Object])
 ], FormRepository);
 exports.FormRepository = FormRepository;
 //# sourceMappingURL=form.repositories.js.map

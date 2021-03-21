@@ -1,23 +1,38 @@
 import { Injectable } from '@nestjs/common';
-import { Client, mapping, auth } from 'cassandra-driver';
+import {
+    ExpressCassandraOptionsFactory,
+    ExpressCassandraModuleOptions,
+    auth
+  } from '@iaminfinity/express-cassandra';
 
 @Injectable()
-export class CassandraService {
-    client: Client;
-    mapper: mapping.Mapper;
-    private createClient() {
-        this.client = new Client({
+export class CassandraService  implements ExpressCassandraOptionsFactory {
+    createExpressCassandraOptions():
+    | ExpressCassandraModuleOptions
+    | Promise<ExpressCassandraModuleOptions> {
+    return this.dbConfig();
+  }    
+    dbConfig(): any {
+        return {
+          clientOptions: {
             contactPoints: ['116.68.207.82'],
             keyspace: 'form_builder',
-            localDataCenter: 'datacenter1',
-            authProvider: new auth.PlainTextAuthProvider('cassandra', 'C@$$andrA')
-        });
-    }
-    
-    createMapper(mappingOptions: mapping.MappingOptions) {
-     if(this.client == undefined) {
-         this.createClient();
-     }   
-     return new mapping.Mapper(this.client, mappingOptions);
-    }
+            protocolOptions: {
+              port: 9042,
+            },
+            queryOptions: {
+              consistency: 1,
+            },
+            authProvider: new auth.PlainTextAuthProvider('cassandra', 'C@$$andrA'),
+          },
+          ormOptions: {
+            createKeyspace: true,
+            defaultReplicationStrategy: {
+              class: 'SimpleStrategy',
+              replication_factor: 1,
+            },
+            migration: 'alter',
+          },
+        };
+      }
 }

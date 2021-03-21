@@ -1,14 +1,11 @@
-import { OnModuleInit } from '@nestjs/common';
-import { mapping } from 'cassandra-driver';
-import { formModel } from './form.model';
-import { CassandraService } from 'src/common/cassandra/cassandra.service';
-export declare class FormRepository implements OnModuleInit {
-    private cassandraService;
-    constructor(cassandraService: CassandraService);
-    formMapper: mapping.ModelMapper<formModel>;
-    onModuleInit(): void;
-    getForm(): Promise<formModel[]>;
-    getEmployeeById(id: number): Promise<formModel[]>;
-    createForm(form: formModel): Promise<formModel[]>;
-    updateFormName(id: number, name: string): Promise<formModel[]>;
+import { forms } from './form.model';
+import { BaseModel } from '@iaminfinity/express-cassandra';
+export declare class FormRepository {
+    private readonly connection;
+    private readonly forms;
+    constructor(connection: any, forms: BaseModel<forms>);
+    getForm(): Promise<any>;
+    findById(id: any): Promise<forms>;
+    createForm(form: forms): Promise<any>;
+    updateFormName(id: number, name: string): Promise<any>;
 }

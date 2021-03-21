@@ -1,16 +1,25 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CassandraModule } from './common/cassandra/cassandra.module';
+import { ExpressCassandraModule } from '@iaminfinity/express-cassandra';
 import { FormModule } from './modules/form/form.module';
-
+import { CassandraService } from './common/cassandra/cassandra.service';
+import { CassandraModule } from './common/cassandra/cassandra.module';
+import { forms } from './modules/form/form.Entity';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
-    CassandraModule,
-    FormModule
+    ExpressCassandraModule.forRootAsync({
+      useClass: CassandraService,
+    }),
+    ExpressCassandraModule.forRootAsync({
+      name: 'test2',
+      imports: [CassandraModule],
+      useFactory: (config: CassandraService) => config.dbConfig(),
+      inject: [CassandraService],
+    }),
+    ExpressCassandraModule.forFeature([forms], 'test2'),
+    FormModule,
   ],
-  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

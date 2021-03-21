@@ -1,19 +1,16 @@
 import { FormService } from './form.service';
 import { FormController } from './form.controller';
 import { Module } from '@nestjs/common';
-import { FormRepository } from './form.repositories';
-import { CassandraModule } from 'src/common/cassandra/cassandra.module';
-
+import { ExpressCassandraModule } from '@iaminfinity/express-cassandra';
+import {forms} from './form.Entity';
 @Module({
-    imports: [CassandraModule],
+    imports: [ExpressCassandraModule.forFeature([forms]),],
     controllers: [FormController],
     providers: [
-        FormService,
-        FormRepository
-    ],
+        FormService
+        ],
     exports: [
-        FormService,
-        FormRepository
+        FormService
     ]
 })
 export class FormModule { }

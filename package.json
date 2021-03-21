@@ -21,7 +21,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@iaminfinity/express-cassandra": "^6.0.0",
     "@nestjs/common": "^7.6.13",
+    "@nestjs/config": "github:nestjs/config",
     "@nestjs/core": "^7.6.13",
     "@nestjs/platform-express": "^7.6.13",
     "@nestjs/swagger": "^4.7.16",

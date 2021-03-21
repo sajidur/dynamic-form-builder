@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { FormService } from './form.service';
-import { formModel } from './form.model';
+import { forms } from './form.Entity';
 import {
     ApiBearerAuth,
     ApiOperation,
@@ -14,23 +14,18 @@ export class FormController {
     
     constructor(private formService: FormService){}
 
-    @Get('forms')
-    async getForm() {
+    @Get('getAll')
+    async getAllForm(): Promise<forms[]> {
         return this.formService.getForm();
     }
 
     @Get('forms/:id')
     async getById(@Param('id') id: number) {
-        return this.formService.getById(id);
+        return this.formService.getForm();
     }
 
-    @Put('forms/:id')
-    async updateEmployeeById(@Param('id') id: number, @Body() form: formModel) {
-        return this.formService.updateFormName(id, form.form_name);
-    }
-
-    @Post('forms')
-    async createEmployee(@Body() form: formModel) {
+    @Post('create')
+    async create(form: forms) {
         return this.formService.createForm(form);
     }
 }

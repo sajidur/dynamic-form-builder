@@ -1,25 +1,42 @@
 import { Injectable } from '@nestjs/common';
-import { FormRepository } from './form.repositories';
-import { formModel } from './form.model';
-
+import { forms } from './form.Entity';
+import {
+  BaseModel,
+  InjectModel,
+  uuid,
+  InjectConnection,
+} from '@iaminfinity/express-cassandra';
+import { query } from 'express';
 @Injectable()
 export class FormService {
     
-    constructor(private formRepository: FormRepository){}
+    constructor(
+        @InjectConnection()
+        private readonly connection: any,
+        @InjectModel(forms)
+        private readonly forms: BaseModel<forms>,
+      ) {}
 
-    async getForm() {
-        return this.formRepository.getForm();
+
+    async getForm(): Promise<forms[]> {
+      return await this.forms.findAsync({}, { raw: true,allow_filtering: true });
     }
 
-    async getById(id: number) {
-        return this.formRepository.getEmployeeById(id);
-    }
+    async findById(id): Promise<forms> {
+        if (typeof id === 'string') {
+          id = uuid(id);
+        }
+        return await this.forms.findOneAsync({ id }, { raw: true });
+      }
 
-    async createForm(form: formModel) {
-        return this.formRepository.createForm(form);
+    async createForm(form: forms): Promise<forms> {
+      const formModel = new this.forms(form);
+        return await formModel.saveAsync();
     }
 
     async updateFormName(id: number, name: string) {
-        return this.formRepository.updateFormName(id, name);
+        var formObj=new forms();
+        const form = new this.forms(formObj);
+        return await form.saveAsync();
     }
 }

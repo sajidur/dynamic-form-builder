@@ -22,7 +22,7 @@ let FormService = class FormService {
         this.forms = forms;
     }
     async getForm() {
-        return await this.forms.findOneAsync({ is_active: true }, { raw: true, allow_filtering: true });
+        return await this.forms.findAsync({}, { raw: true, allow_filtering: true });
     }
     async findById(id) {
         if (typeof id === 'string') {
@@ -31,7 +31,8 @@ let FormService = class FormService {
         return await this.forms.findOneAsync({ id }, { raw: true });
     }
     async createForm(form) {
-        return (await this.forms.insert(form)).toArray();
+        const formModel = new this.forms(form);
+        return await formModel.saveAsync();
     }
     async updateFormName(id, name) {
         var formObj = new form_Entity_1.forms();

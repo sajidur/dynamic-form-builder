@@ -46,7 +46,6 @@ __decorate([
 ], FormController.prototype, "getById", null);
 __decorate([
     common_1.Post('create'),
-    __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [form_Entity_1.forms]),
     __metadata("design:returntype", Promise)

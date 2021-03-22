@@ -16,17 +16,20 @@ exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
 const form_Entity_1 = require("./modules/form/form.Entity");
+const questions_entity_1 = require("./modules/questions/questions.entity");
 let AppService = class AppService {
-    constructor(connection, formModel) {
+    constructor(connection, formModel, questionsModel) {
         this.connection = connection;
         this.formModel = formModel;
+        this.questionsModel = questionsModel;
     }
 };
 AppService = __decorate([
     common_1.Injectable(),
     __param(0, express_cassandra_1.InjectConnection('dbcon')),
     __param(1, express_cassandra_1.InjectModel(form_Entity_1.forms)),
-    __metadata("design:paramtypes", [Object, Object])
+    __param(2, express_cassandra_1.InjectModel(questions_entity_1.questions)),
+    __metadata("design:paramtypes", [Object, Object, Object])
 ], AppService);
 exports.AppService = AppService;
 //# sourceMappingURL=app.service.js.map

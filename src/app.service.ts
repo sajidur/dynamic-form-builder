@@ -6,7 +6,7 @@ import {
   InjectConnection,
 } from '@iaminfinity/express-cassandra';
 import { forms } from './modules/form/form.Entity';
-import { formDto } from './modules/form/form.dto';
+import { questions } from './modules/questions/questions.entity';
 
 @Injectable()
 export class AppService {
@@ -15,5 +15,7 @@ export class AppService {
     private readonly connection: any,
     // inject CatEntity from connection=test2
     @InjectModel(forms) private readonly formModel: BaseModel<forms>,
+    @InjectModel(questions) private readonly questionsModel: BaseModel<questions>,
+
   ) {}
 }

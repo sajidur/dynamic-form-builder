@@ -48,7 +48,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "getById", null);
 __decorate([
-    common_1.Put('forms/publish/:id'),
+    common_1.Put('publish/:id'),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

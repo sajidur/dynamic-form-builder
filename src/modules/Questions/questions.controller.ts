@@ -23,6 +23,7 @@ export class QuestionsController {
     @Get('formId/:id')
     async getById(@Param('id') id: string) {
         var questions: questionsDto[] = [];
+        var sub_questions:questionsDto[]=[];
         var conditions: conditionsDto[] = [];
         var options: optionsDto[] = [];
         var condition=new conditionsDto();
@@ -72,6 +73,23 @@ export class QuestionsController {
         question.weight_value=100;
         question.conditions=conditions;
         question.options=options;
+        const sub_question=new questionsDto();
+        sub_question.id='ff09737-098989-0902910-090910';
+        sub_question.code="002";
+        sub_question.descriptions="test questions 2",
+        sub_question.controlType=control;
+        sub_question.parent_questions_id='q09737-098989-0902910-090910';
+        sub_question.questions_level=1;
+        sub_question.form_id="f09737-098989-0902910-090910";
+        sub_question.inputvalidation=" (0-9)";
+        sub_question.is_condition=true;
+        sub_question.is_enable_score=true;
+        sub_question.is_mandatory=true;
+        sub_question.order_no=1;
+        sub_question.weight_value=90;
+        sub_question.options=options;
+        sub_questions.push(sub_question);
+        question.sub_questions=sub_questions;
         questions.push(question);
         return questions;   
      }

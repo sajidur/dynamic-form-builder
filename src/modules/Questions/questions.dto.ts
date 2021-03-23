@@ -20,4 +20,5 @@ export class questionsDto {
     weight_value:number;
     options:optionsDto[];
     conditions:conditionsDto[];
+    sub_questions:questionsDto[];
   }

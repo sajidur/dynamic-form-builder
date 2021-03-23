@@ -2057,7 +2057,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.controller.spec.ts": {
-        "version": "88faf5523fd7f5dae5a6c78be2dd1709eb6c20ee82c64fc399f8a2e8fb767527",
+        "version": "43750c632fc7f5997ddd690d4c3989443ab29ebd8866ee1fec6f3885834f8054",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -2106,9 +2106,14 @@
         "signature": "b3d21e88621df7408db7909a909505e1fb0fb959b745d9519b8aa340f5bb5c3c",
         "affectsGlobalScope": false
       },
+      "../src/modules/form/formulasdto.dto.ts": {
+        "version": "78adec6dcf02dd261eab6155f7f6ca4cf87f12d4189e49207da6ce7f6c0ff9ea",
+        "signature": "7499d97131d1938cb4d25fbbea3995f45bf304e5b0b02f09c5cf3634ce7e427d",
+        "affectsGlobalScope": false
+      },
       "../src/modules/form/form.controller.ts": {
-        "version": "983ff0b1e2b796e7334e5347d4bd74fd0c825a2e52f0123d5de758ac3a7a8100",
-        "signature": "39c881ba565cb08705180a2a2cac7bf8a2b78b2eede6ae436397957700b0518a",
+        "version": "261f83aee0bbebbeace5e42329530525ae06f238b2a066f80dd5ed6305d643dd",
+        "signature": "1abf4b6fbd8f7a9972ffd611f41c740a556fbea211ff051e10cf17cf6a587182",
         "affectsGlobalScope": false
       },
       "../src/modules/form/form.module.ts": {
@@ -2252,7 +2257,7 @@
         "affectsGlobalScope": false
       },
       "../test/app.e2e-spec.ts": {
-        "version": "a02dfdc143eeec47c36db06fcb91c36ba1c8c9377c720b831a86ddc2701fcf8d",
+        "version": "5b0a1515e0e8742be82b50bdb4f35060b02bf323abaad22f32d3df482ae670b5",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -4247,7 +4252,8 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../src/modules/form/form.entity.ts",
-        "../src/modules/form/form.service.ts"
+        "../src/modules/form/form.service.ts",
+        "../src/modules/form/formulasdto.dto.ts"
       ],
       "../src/modules/form/form.entity.ts": [
         "../node_modules/@iaminfinity/express-cassandra/index.d.ts"
@@ -5972,7 +5978,8 @@
       ],
       "../src/modules/form/form.controller.ts": [
         "../src/modules/form/form.entity.ts",
-        "../src/modules/form/form.service.ts"
+        "../src/modules/form/form.service.ts",
+        "../src/modules/form/formulasdto.dto.ts"
       ],
       "../src/modules/form/form.service.ts": [
         "../node_modules/@iaminfinity/express-cassandra/index.d.ts",
@@ -6484,6 +6491,7 @@
       "../src/modules/form/form.entity.ts",
       "../src/modules/form/form.module.ts",
       "../src/modules/form/form.service.ts",
+      "../src/modules/form/formulasdto.dto.ts",
       "../src/modules/questions/conditions.dto.ts",
       "../src/modules/questions/controltype.dto.ts",
       "../src/modules/questions/options.dto.ts",

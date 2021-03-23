@@ -1886,9 +1886,14 @@
         "signature": "b3d21e88621df7408db7909a909505e1fb0fb959b745d9519b8aa340f5bb5c3c",
         "affectsGlobalScope": false
       },
+      "../src/modules/form/formulasdto.dto.ts": {
+        "version": "78adec6dcf02dd261eab6155f7f6ca4cf87f12d4189e49207da6ce7f6c0ff9ea",
+        "signature": "7499d97131d1938cb4d25fbbea3995f45bf304e5b0b02f09c5cf3634ce7e427d",
+        "affectsGlobalScope": false
+      },
       "../src/modules/form/form.controller.ts": {
-        "version": "983ff0b1e2b796e7334e5347d4bd74fd0c825a2e52f0123d5de758ac3a7a8100",
-        "signature": "39c881ba565cb08705180a2a2cac7bf8a2b78b2eede6ae436397957700b0518a",
+        "version": "261f83aee0bbebbeace5e42329530525ae06f238b2a066f80dd5ed6305d643dd",
+        "signature": "1abf4b6fbd8f7a9972ffd611f41c740a556fbea211ff051e10cf17cf6a587182",
         "affectsGlobalScope": false
       },
       "../src/modules/form/form.module.ts": {
@@ -4163,7 +4168,8 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../src/modules/form/form.entity.ts",
-        "../src/modules/form/form.service.ts"
+        "../src/modules/form/form.service.ts",
+        "../src/modules/form/formulasdto.dto.ts"
       ],
       "../src/modules/form/form.entity.ts": [
         "../node_modules/@iaminfinity/express-cassandra/index.d.ts"
@@ -5849,7 +5855,8 @@
       ],
       "../src/modules/form/form.controller.ts": [
         "../src/modules/form/form.entity.ts",
-        "../src/modules/form/form.service.ts"
+        "../src/modules/form/form.service.ts",
+        "../src/modules/form/formulasdto.dto.ts"
       ],
       "../src/modules/form/form.service.ts": [
         "../node_modules/@iaminfinity/express-cassandra/index.d.ts",

@@ -16,6 +16,7 @@ exports.FormController = void 0;
 const common_1 = require("@nestjs/common");
 const form_service_1 = require("./form.service");
 const form_Entity_1 = require("./form.Entity");
+const formulasDto_dto_1 = require("./formulasDto.dto");
 const swagger_1 = require("@nestjs/swagger");
 let FormController = class FormController {
     constructor(formService) {
@@ -25,13 +26,24 @@ let FormController = class FormController {
         return this.formService.getForm();
     }
     async getById(id) {
-        return this.formService.getForm();
+        return this.formService.findById(id);
     }
     async publish(id) {
         return "Form published sucess";
     }
     async create(form) {
         return this.formService.createForm(form);
+    }
+    async formula_by_form_id(formId) {
+        var formulas = [];
+        var formula = new formulasDto_dto_1.formulasDto();
+        formula.id = "r09737-098989-0902910-090910";
+        formula.form_id = "09737-098989-0902910-090910";
+        formula.head_name = "Total valuations";
+        formula.formula_string = "{q09737-098989-0902910-090910}*1.5+{ff09737-098989-0902910-090910}";
+        formula.descriptions = "test";
+        formulas.push(formula);
+        return formulas;
     }
 };
 __decorate([
@@ -44,7 +56,7 @@ __decorate([
     common_1.Get('forms/:id'),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "getById", null);
 __decorate([
@@ -61,6 +73,13 @@ __decorate([
     __metadata("design:paramtypes", [form_Entity_1.forms]),
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "create", null);
+__decorate([
+    common_1.Get('formula/:formId'),
+    __param(0, common_1.Param('formId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], FormController.prototype, "formula_by_form_id", null);
 FormController = __decorate([
     swagger_1.ApiTags('Form API'),
     common_1.Controller('form'),

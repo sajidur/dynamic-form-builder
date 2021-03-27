@@ -28,18 +28,6 @@ __decorate([
         type: 'text',
     }),
     __metadata("design:type", String)
-], forms.prototype, "first_name", void 0);
-__decorate([
-    express_cassandra_1.Column({
-        type: 'text',
-    }),
-    __metadata("design:type", String)
-], forms.prototype, "last_name", void 0);
-__decorate([
-    express_cassandra_1.Column({
-        type: 'text',
-    }),
-    __metadata("design:type", String)
 ], forms.prototype, "descriptions", void 0);
 __decorate([
     express_cassandra_1.Column({
@@ -67,13 +55,13 @@ __decorate([
 ], forms.prototype, "is_published", void 0);
 __decorate([
     express_cassandra_1.Column({
-        type: 'text',
+        type: 'uuid',
     }),
     __metadata("design:type", String)
 ], forms.prototype, "app_id", void 0);
 __decorate([
     express_cassandra_1.Column({
-        type: 'text',
+        type: 'uuid',
     }),
     __metadata("design:type", String)
 ], forms.prototype, "company_id", void 0);

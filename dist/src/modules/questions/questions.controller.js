@@ -14,11 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuestionsController = void 0;
 const common_1 = require("@nestjs/common");
-const controltype_dto_1 = require("../Questions/controltype.dto");
-const questions_dto_1 = require("../Questions/questions.dto");
+const controltype_dto_1 = require("./dto/controltype.dto");
+const questions_dto_1 = require("./dto/questions.dto");
 const swagger_1 = require("@nestjs/swagger");
-const conditions_dto_1 = require("./conditions.dto");
-const options_dto_1 = require("./options.dto");
+const conditions_dto_1 = require("./dto/conditions.dto");
+const options_dto_1 = require("./dto/options.dto");
 let QuestionsController = class QuestionsController {
     async getAll() {
         const cat = new questions_dto_1.questionsDto[1]();

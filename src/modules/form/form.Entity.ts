@@ -26,16 +26,6 @@ import {
     })
     form_name: string;
 
-    @Column({
-        type: 'text',
-      })
-      first_name: string;
-
-      @Column({
-        type: 'text',
-      })
-      last_name: string;
-
       @Column({
         type: 'text',
       })
@@ -62,12 +52,12 @@ import {
     is_published: boolean;
     
     @Column({
-        type: 'text',
+        type: 'uuid',
       })
       app_id: string;
     
     @Column({
-        type: 'text',
+        type: 'uuid',
       })
       company_id: string;
   }

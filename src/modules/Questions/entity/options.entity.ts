@@ -5,7 +5,7 @@ import {
   } from '@iaminfinity/express-cassandra';
   
   @Entity({
-    table_name: 'forms',
+    table_name: 'options',
     key: ['id'],
     options: {
       timestamps: {
@@ -17,51 +17,54 @@ import {
       },
     },
   })
-  export class questions {
+  export class options {
     @GeneratedUUidColumn()
     id: any;
   
     @Column({
       type: 'text',
     })
-    form_name: string;
-
-    @Column({
-        type: 'text',
-      })
-      first_name: string;
+    name: string;
 
       @Column({
         type: 'text',
       })
-      last_name: string;
+      value: string;
 
       @Column({
-        type: 'text',
+        type: 'uuid',
       })
-      descriptions: string;
+      form_id: string;
+      @Column({
+        type: 'uuid',
+      })
+      question_id: string;
 
     @Column({
       type: 'int',
     })
-    questions_per_page: number;
+    order_no: number;
 
     @Column({
-        type: 'text',
+        type: 'int',
       })
-    header_image: string;
+      score_value: number;
 
   @Column({
         type: 'boolean',
       })
-    is_active: boolean;
+      is_mandatory: boolean;
 
+      @Column({
+        type: 'boolean',
+      })
+      is_condition: boolean;
     @Column({
         type: 'boolean',
       })
-    is_published: boolean;
-    
-    @Column({
+      is_pre_slected: boolean;
+
+      @Column({
         type: 'text',
       })
       app_id: string;

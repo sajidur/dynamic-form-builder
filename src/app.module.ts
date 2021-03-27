@@ -6,7 +6,9 @@ import { QuestionsModule } from './modules/questions/questions.module';
 import { CassandraService } from './common/cassandra/cassandra.service';
 import { CassandraModule } from './common/cassandra/cassandra.module';
 import { forms } from './modules/form/form.Entity';
-import { questions } from './modules/questions/questions.entity';
+import { questions } from './modules/Questions/entity/questions.entity';
+import { conditions } from './modules/Questions/entity/conditions.entity';
+import { options } from './modules/Questions/entity/options.entity';
 
 import { AppService } from './app.service';
 
@@ -21,7 +23,7 @@ import { AppService } from './app.service';
       useFactory: (config: CassandraService) => config.dbConfig(),
       inject: [CassandraService],
     }),
-    ExpressCassandraModule.forFeature([forms,questions], 'dbcon'),
+    ExpressCassandraModule.forFeature([forms,questions,conditions,options], 'dbcon'),
     FormModule,QuestionsModule
   ],
   providers: [AppService],

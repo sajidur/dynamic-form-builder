@@ -10,12 +10,14 @@ exports.QuestionsModule = void 0;
 const questions_controller_1 = require("./questions.controller");
 const common_1 = require("@nestjs/common");
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
-const questions_entity_1 = require("./questions.entity");
+const questions_entity_1 = require("./entity/questions.entity");
+const conditions_entity_1 = require("./entity/conditions.entity");
+const options_entity_1 = require("./entity/options.entity");
 let QuestionsModule = class QuestionsModule {
 };
 QuestionsModule = __decorate([
     common_1.Module({
-        imports: [express_cassandra_1.ExpressCassandraModule.forFeature([questions_entity_1.questions]),],
+        imports: [express_cassandra_1.ExpressCassandraModule.forFeature([questions_entity_1.questions, conditions_entity_1.conditions, options_entity_1.options]),],
         controllers: [questions_controller_1.QuestionsController],
         providers: [],
         exports: []

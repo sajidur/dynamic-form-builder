@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Put,Req  } from '@nestjs/common';
-import {controlTypeDto} from '../Questions/controltype.dto'
-import {questionsDto} from '../Questions/questions.dto'
+import {controlTypeDto} from './dto/controltype.dto'
+import {questionsDto} from './dto/questions.dto'
 
 import {
     ApiBearerAuth,
@@ -8,8 +8,8 @@ import {
     ApiResponse,
     ApiTags,
   } from '@nestjs/swagger';
-import { conditionsDto } from './conditions.dto';
-import { optionsDto } from './options.dto';
+import { conditionsDto } from './dto/conditions.dto';
+import { optionsDto } from './dto/options.dto';
 
 @ApiTags('Questions API')
 @Controller('questions')

@@ -1,8 +1,6 @@
 export declare class forms {
     id: any;
     form_name: string;
-    first_name: string;
-    last_name: string;
     descriptions: string;
     questions_per_page: number;
     header_image: string;

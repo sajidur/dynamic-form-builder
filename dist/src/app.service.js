@@ -16,12 +16,16 @@ exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
 const form_Entity_1 = require("./modules/form/form.Entity");
-const questions_entity_1 = require("./modules/questions/questions.entity");
+const questions_entity_1 = require("./modules/Questions/entity/questions.entity");
+const conditions_entity_1 = require("./modules/Questions/entity/conditions.entity");
+const options_entity_1 = require("./modules/Questions/entity/options.entity");
 let AppService = class AppService {
-    constructor(connection, formModel, questionsModel) {
+    constructor(connection, form, questions, conditions, options) {
         this.connection = connection;
-        this.formModel = formModel;
-        this.questionsModel = questionsModel;
+        this.form = form;
+        this.questions = questions;
+        this.conditions = conditions;
+        this.options = options;
     }
 };
 AppService = __decorate([
@@ -29,7 +33,9 @@ AppService = __decorate([
     __param(0, express_cassandra_1.InjectConnection('dbcon')),
     __param(1, express_cassandra_1.InjectModel(form_Entity_1.forms)),
     __param(2, express_cassandra_1.InjectModel(questions_entity_1.questions)),
-    __metadata("design:paramtypes", [Object, Object, Object])
+    __param(3, express_cassandra_1.InjectModel(conditions_entity_1.conditions)),
+    __param(4, express_cassandra_1.InjectModel(options_entity_1.options)),
+    __metadata("design:paramtypes", [Object, Object, Object, Object, Object])
 ], AppService);
 exports.AppService = AppService;
 //# sourceMappingURL=app.service.js.map

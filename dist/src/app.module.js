@@ -14,7 +14,9 @@ const questions_module_1 = require("./modules/questions/questions.module");
 const cassandra_service_1 = require("./common/cassandra/cassandra.service");
 const cassandra_module_1 = require("./common/cassandra/cassandra.module");
 const form_Entity_1 = require("./modules/form/form.Entity");
-const questions_entity_1 = require("./modules/questions/questions.entity");
+const questions_entity_1 = require("./modules/Questions/entity/questions.entity");
+const conditions_entity_1 = require("./modules/Questions/entity/conditions.entity");
+const options_entity_1 = require("./modules/Questions/entity/options.entity");
 const app_service_1 = require("./app.service");
 let AppModule = class AppModule {
 };
@@ -30,7 +32,7 @@ AppModule = __decorate([
                 useFactory: (config) => config.dbConfig(),
                 inject: [cassandra_service_1.CassandraService],
             }),
-            express_cassandra_1.ExpressCassandraModule.forFeature([form_Entity_1.forms, questions_entity_1.questions], 'dbcon'),
+            express_cassandra_1.ExpressCassandraModule.forFeature([form_Entity_1.forms, questions_entity_1.questions, conditions_entity_1.conditions, options_entity_1.options], 'dbcon'),
             form_module_1.FormModule, questions_module_1.QuestionsModule
         ],
         providers: [app_service_1.AppService],

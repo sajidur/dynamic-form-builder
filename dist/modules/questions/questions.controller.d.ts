@@ -1,4 +1,4 @@
-import { questionsDto } from '../Questions/questions.dto';
+import { questionsDto } from './dto/questions.dto';
 export declare class QuestionsController {
     getAll(): Promise<questionsDto[]>;
     getById(id: string): Promise<questionsDto[]>;

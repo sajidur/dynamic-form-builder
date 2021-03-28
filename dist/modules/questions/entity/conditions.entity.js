@@ -86,7 +86,7 @@ __decorate([
 conditions = __decorate([
     express_cassandra_1.Entity({
         table_name: 'conditions',
-        key: ['id'],
+        key: [['target_id'], 'id'],
         options: {
             timestamps: {
                 createdAt: 'created_at',

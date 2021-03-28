@@ -57,18 +57,19 @@ __decorate([
     express_cassandra_1.Column({
         type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], forms.prototype, "app_id", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], forms.prototype, "company_id", void 0);
 forms = __decorate([
     express_cassandra_1.Entity({
         table_name: 'forms',
-        key: ['id'],
+        key: [['app_id'], 'id'],
+        indexes: ['is_active', 'is_published'],
         options: {
             timestamps: {
                 createdAt: 'created_at',

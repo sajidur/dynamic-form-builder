@@ -1637,22 +1637,22 @@
         "affectsGlobalScope": false
       },
       "../src/modules/form/form.entity.ts": {
-        "version": "b1ef2dfde7cdbe47c934d18d4c577e8e7e5ce7a2bc859674d9f6efcd26c67962",
-        "signature": "aad06384fd04791b388cb1fa7d9bf7d27226e2d7fdefe8636f98489737bbf6cb",
+        "version": "be69a7ee73eff1e9b5e4faab3e8d69166ada174708eee77bb99be716501ae5b5",
+        "signature": "3a441bebbe6d5bf6778bc11b3ea3a760f62302ca9a94d5756a021b2b5d48315c",
         "affectsGlobalScope": false
       },
       "../src/modules/questions/entity/questions.entity.ts": {
-        "version": "975aeede1540b970a8d4a9f16ed8bd40c1c455f3d0432e1c062a88a1f0cc1590",
-        "signature": "503f53add430937ea9c34325e8b5e6f53c6cbe986f62a8ce2b66091f773cbe18",
+        "version": "1d1c350a78e16d6456065bcc1c3a611c0f027ebe66ef4e522ed55ac1e87c5d23",
+        "signature": "992fa8ea31f9413e2f17319c5b34b69ae611ebf04199c6133982697b68c1dee6",
         "affectsGlobalScope": false
       },
       "../src/modules/questions/entity/conditions.entity.ts": {
-        "version": "feab341d8f06aea80b477db2dcaaf64bdde784499d18fc1eb1efa6e7dccac75b",
+        "version": "4a24f97cef4a9ff29829c700182bd41ab133745ad5954edc7fa7c316b5e50ce5",
         "signature": "9f07472599bd330db7c59d34e40f51720e52d91e72da2ffb20904320c328b7d0",
         "affectsGlobalScope": false
       },
       "../src/modules/questions/entity/options.entity.ts": {
-        "version": "2a46dd986fcc66a107c0e08aa06af2b6f26e7af943cfaa33248f0dc19ba1a387",
+        "version": "b0a63303990b65ebefe550a2a0f004557fa06a2ba6d973a0553afba31e519a27",
         "signature": "bdaf6bba3d12f2e1a2fd1160de4206feb1ef1669d56482df4d7ec4c741f629a8",
         "affectsGlobalScope": false
       },
@@ -1892,8 +1892,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/form/form.service.ts": {
-        "version": "a49299c8d86e9e60d3315b9c48187e51d87d57bae9e5dbf1479056f3e9f476e9",
-        "signature": "b3d21e88621df7408db7909a909505e1fb0fb959b745d9519b8aa340f5bb5c3c",
+        "version": "933ed17ab3c5cc3412396646df7a7d1763ae9f1c553a631728214e3a50d96b29",
+        "signature": "8357f6dda4138def764c7b1664a2b737cadfdc5eba9adb63d9a5f953e7f6f0db",
         "affectsGlobalScope": false
       },
       "../src/modules/form/formulasdto.dto.ts": {
@@ -1902,8 +1902,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/form/form.controller.ts": {
-        "version": "261f83aee0bbebbeace5e42329530525ae06f238b2a066f80dd5ed6305d643dd",
-        "signature": "1abf4b6fbd8f7a9972ffd611f41c740a556fbea211ff051e10cf17cf6a587182",
+        "version": "183e4a94995b993a4b50484f77bda6616dd90e4c62d5454df9f65de7d12e563e",
+        "signature": "38ecbfaf4732865dc86c1eb354ebec752c120b243d0166b16b709b187b056d8e",
         "affectsGlobalScope": false
       },
       "../src/modules/form/form.module.ts": {

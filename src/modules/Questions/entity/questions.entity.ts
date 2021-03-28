@@ -6,7 +6,8 @@ import {
   
   @Entity({
     table_name: 'questions',
-    key: ['id'],
+    key: [['form_id'],'id'],
+    indexes:['parent_questions_id','code'],
     options: {
       timestamps: {
         createdAt: 'created_at',
@@ -30,6 +31,11 @@ import {
         type: 'text',
       })
       descriptions: string;
+
+      @Column({
+        type: 'int',
+      })
+      section_id: number;
 
       @Column({
         type: 'int',
@@ -65,6 +71,10 @@ import {
       })
       is_condition: boolean;
 
+      @Column({
+        type: 'boolean',
+      })
+      is_active: boolean;
       @Column({
         type: 'int',
       })

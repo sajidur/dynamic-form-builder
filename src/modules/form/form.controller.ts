@@ -25,12 +25,12 @@ export class FormController {
     async getById(@Param('id') id: string) {
         return this.formService.findById(id);
     }
-    @Put('publish/:id')
-    async publish(@Param('id') id: string) {
-        return "Form published sucess";
+    @Put('publish')
+    async publish(@Body() form: forms) {
+        return this.formService.published(form);
     }
     @Post('create')
-    async create(@Req() form: forms) {
+    async create(@Body() form: forms) {
         return this.formService.createForm(form);
     }
     @Get('formula/:formId')

@@ -2,6 +2,7 @@ export declare class questions {
     id: any;
     code: string;
     descriptions: string;
+    section_id: number;
     controlTypeId: number;
     controlTypeName: string;
     parent_questions_id: number;
@@ -9,6 +10,7 @@ export declare class questions {
     is_mandatory: boolean;
     inputvalidation: string;
     is_condition: boolean;
+    is_active: boolean;
     order_no: number;
     set_formula: string;
     is_enable_score: boolean;

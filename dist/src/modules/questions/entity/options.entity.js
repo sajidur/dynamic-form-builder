@@ -86,7 +86,7 @@ __decorate([
 options = __decorate([
     express_cassandra_1.Entity({
         table_name: 'options',
-        key: ['id'],
+        key: [['question_id'], 'id'],
         options: {
             timestamps: {
                 createdAt: 'created_at',

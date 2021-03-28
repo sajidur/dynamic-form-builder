@@ -19,7 +19,7 @@ export class FormService {
 
 
     async getForm(): Promise<forms[]> {
-      return await this.forms.findAsync({}, { raw: true,allow_filtering: true });
+      return await this.forms.findAsync({}, { raw: true });
     }
 
     async findById(id): Promise<forms> {
@@ -31,6 +31,9 @@ export class FormService {
 
     async createForm(form: forms): Promise<forms> {
       const formModel = new this.forms(form);
+      formModel.app_id=uuid(formModel.app_id);
+      formModel.is_published=false;
+      formModel.is_active=true
         return await formModel.saveAsync();
     }
 
@@ -39,4 +42,11 @@ export class FormService {
         const form = new this.forms(formObj);
         return await form.saveAsync();
     }
+    async published(formObj: forms): Promise<forms> {
+      const updated = new this.forms(formObj);
+      var id=uuid(formObj.id);
+      var app_id=uuid(formObj.app_id);
+      var res=this.forms.update({ app_id:app_id , id:id  }, { is_published: formObj.is_published });
+      return updated;
+  }
 }

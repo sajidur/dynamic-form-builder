@@ -22,7 +22,7 @@ let FormService = class FormService {
         this.forms = forms;
     }
     async getForm() {
-        return await this.forms.findAsync({}, { raw: true, allow_filtering: true });
+        return await this.forms.findAsync({}, { raw: true });
     }
     async findById(id) {
         if (typeof id === 'string') {
@@ -32,12 +32,22 @@ let FormService = class FormService {
     }
     async createForm(form) {
         const formModel = new this.forms(form);
+        formModel.app_id = express_cassandra_1.uuid(formModel.app_id);
+        formModel.is_published = false;
+        formModel.is_active = true;
         return await formModel.saveAsync();
     }
     async updateFormName(id, name) {
         var formObj = new form_Entity_1.forms();
         const form = new this.forms(formObj);
         return await form.saveAsync();
+    }
+    async published(formObj) {
+        const updated = new this.forms(formObj);
+        var id = express_cassandra_1.uuid(formObj.id);
+        var app_id = express_cassandra_1.uuid(formObj.app_id);
+        var res = this.forms.update({ app_id: app_id, id: id }, { is_published: formObj.is_published });
+        return updated;
     }
 };
 FormService = __decorate([

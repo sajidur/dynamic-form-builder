@@ -6,6 +6,6 @@ export declare class forms {
     header_image: string;
     is_active: boolean;
     is_published: boolean;
-    app_id: string;
-    company_id: string;
+    app_id: any;
+    company_id: any;
 }

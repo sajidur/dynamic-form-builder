@@ -6,7 +6,7 @@ import {
   
   @Entity({
     table_name: 'options',
-    key: ['id'],
+    key: [['question_id'],'id'],
     options: {
       timestamps: {
         createdAt: 'created_at',

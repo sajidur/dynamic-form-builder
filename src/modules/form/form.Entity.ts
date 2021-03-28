@@ -6,7 +6,8 @@ import {
   
   @Entity({
     table_name: 'forms',
-    key: ['id'],
+    key: [['app_id'],'id'],
+    indexes:['is_active','is_published'],
     options: {
       timestamps: {
         createdAt: 'created_at',
@@ -54,11 +55,11 @@ import {
     @Column({
         type: 'uuid',
       })
-      app_id: string;
+      app_id: any;
     
     @Column({
         type: 'uuid',
       })
-      company_id: string;
+      company_id: any;
   }
   

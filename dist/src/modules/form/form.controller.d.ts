@@ -6,7 +6,7 @@ export declare class FormController {
     constructor(formService: FormService);
     getAllForm(): Promise<forms[]>;
     getById(id: string): Promise<forms>;
-    publish(id: string): Promise<string>;
+    publish(form: forms): Promise<forms>;
     create(form: forms): Promise<forms>;
     formula_by_form_id(formId: string): Promise<formulasDto[]>;
 }

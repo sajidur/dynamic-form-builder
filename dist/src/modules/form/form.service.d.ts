@@ -8,4 +8,5 @@ export declare class FormService {
     findById(id: any): Promise<forms>;
     createForm(form: forms): Promise<forms>;
     updateFormName(id: number, name: string): Promise<any>;
+    published(formObj: forms): Promise<forms>;
 }

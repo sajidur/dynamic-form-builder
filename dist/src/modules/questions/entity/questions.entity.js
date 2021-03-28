@@ -34,6 +34,12 @@ __decorate([
         type: 'int',
     }),
     __metadata("design:type", Number)
+], questions.prototype, "section_id", void 0);
+__decorate([
+    express_cassandra_1.Column({
+        type: 'int',
+    }),
+    __metadata("design:type", Number)
 ], questions.prototype, "controlTypeId", void 0);
 __decorate([
     express_cassandra_1.Column({
@@ -71,6 +77,12 @@ __decorate([
     }),
     __metadata("design:type", Boolean)
 ], questions.prototype, "is_condition", void 0);
+__decorate([
+    express_cassandra_1.Column({
+        type: 'boolean',
+    }),
+    __metadata("design:type", Boolean)
+], questions.prototype, "is_active", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'int',
@@ -122,7 +134,8 @@ __decorate([
 questions = __decorate([
     express_cassandra_1.Entity({
         table_name: 'questions',
-        key: ['id'],
+        key: [['form_id'], 'id'],
+        indexes: ['parent_questions_id', 'code'],
         options: {
             timestamps: {
                 createdAt: 'created_at',

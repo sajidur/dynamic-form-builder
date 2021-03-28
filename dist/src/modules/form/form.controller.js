@@ -28,8 +28,8 @@ let FormController = class FormController {
     async getById(id) {
         return this.formService.findById(id);
     }
-    async publish(id) {
-        return "Form published sucess";
+    async publish(form) {
+        return this.formService.published(form);
     }
     async create(form) {
         return this.formService.createForm(form);
@@ -60,15 +60,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "getById", null);
 __decorate([
-    common_1.Put('publish/:id'),
-    __param(0, common_1.Param('id')),
+    common_1.Put('publish'),
+    __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [form_Entity_1.forms]),
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "publish", null);
 __decorate([
     common_1.Post('create'),
-    __param(0, common_1.Req()),
+    __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [form_Entity_1.forms]),
     __metadata("design:returntype", Promise)

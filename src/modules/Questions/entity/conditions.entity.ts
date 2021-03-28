@@ -6,7 +6,7 @@ import {
   
   @Entity({
     table_name: 'conditions',
-    key: ['id'],
+    key: [['target_id'],'id'],
     options: {
       timestamps: {
         createdAt: 'created_at',

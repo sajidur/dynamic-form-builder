@@ -16,10 +16,14 @@ exports.QuestionsController = void 0;
 const common_1 = require("@nestjs/common");
 const controltype_dto_1 = require("./dto/controltype.dto");
 const questions_dto_1 = require("./dto/questions.dto");
+const questions_service_1 = require("../Questions/questions.service");
 const swagger_1 = require("@nestjs/swagger");
 const conditions_dto_1 = require("./dto/conditions.dto");
 const options_dto_1 = require("./dto/options.dto");
 let QuestionsController = class QuestionsController {
+    constructor(questionService) {
+        this.questionService = questionService;
+    }
     async getAll() {
         const cat = new questions_dto_1.questionsDto[1]();
         return cat;
@@ -94,9 +98,9 @@ let QuestionsController = class QuestionsController {
     async publish(id) {
         return "Form published sucess";
     }
-    async create(form) {
-        const cat = new questions_dto_1.questionsDto[1]();
-        return cat;
+    async create(questionsDto) {
+        return this.questionService.createForm(questionsDto);
+        return questionsDto;
     }
 };
 __decorate([
@@ -121,14 +125,15 @@ __decorate([
 ], QuestionsController.prototype, "publish", null);
 __decorate([
     common_1.Post('create'),
-    __param(0, common_1.Req()),
+    __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [questions_dto_1.questionsDto]),
     __metadata("design:returntype", Promise)
 ], QuestionsController.prototype, "create", null);
 QuestionsController = __decorate([
     swagger_1.ApiTags('Questions API'),
-    common_1.Controller('questions')
+    common_1.Controller('questions'),
+    __metadata("design:paramtypes", [questions_service_1.QuestionsService])
 ], QuestionsController);
 exports.QuestionsController = QuestionsController;
 //# sourceMappingURL=questions.controller.js.map

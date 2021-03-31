@@ -16,6 +16,7 @@ export declare class questionsDto {
     set_formula: string;
     is_enable_score: boolean;
     each_item_calculation: boolean;
+    app_id: string;
     weight_value: number;
     options: optionsDto[];
     conditions: conditionsDto[];

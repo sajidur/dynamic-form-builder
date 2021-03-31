@@ -1,9 +1,11 @@
 import { controlTypeDto } from "./controltype.dto";
 import { optionsDto } from "./options.dto";
 import { conditionsDto } from "./conditions.dto";
+import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class questionsDto {
     id: string;
+    @IsNotEmpty()
     code: string;
     descriptions: string;
     controlType: controlTypeDto;
@@ -17,6 +19,7 @@ export class questionsDto {
     set_formula:string;
     is_enable_score:boolean;
     each_item_calculation:boolean;
+    app_id:string;
     weight_value:number;
     options:optionsDto[];
     conditions:conditionsDto[];

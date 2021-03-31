@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Param, Put,Req  } from '@nestjs/common';
 import {controlTypeDto} from './dto/controltype.dto'
 import {questionsDto} from './dto/questions.dto'
+import { QuestionsService } from '../Questions/questions.service';
 
 import {
     ApiBearerAuth,
@@ -14,6 +15,8 @@ import { optionsDto } from './dto/options.dto';
 @ApiTags('Questions API')
 @Controller('questions')
 export class QuestionsController {
+    constructor(private questionService: QuestionsService){}
+
     @Get('getAll')
     async getAll(): Promise<questionsDto[]> {
         const cat = new questionsDto[1]();
@@ -98,8 +101,8 @@ export class QuestionsController {
         return "Form published sucess";
     }
     @Post('create')
-    async create(@Req() form: questionsDto) {
-        const cat = new questionsDto[1]();
-        return cat;   
+    async create(@Body() questionsDto: questionsDto) {
+        return this.questionService.createForm(questionsDto);
+        return questionsDto;   
      }
 }

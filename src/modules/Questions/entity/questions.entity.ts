@@ -99,17 +99,17 @@ import {
       weight_value: number;
 
       @Column({
-        type: 'text',
+        type: 'uuid',
       })
-      app_id: string;
+      app_id: any;
     @Column({
         type: 'uuid',
       })
-      form_id: string;
+      form_id: any;
     
     @Column({
         type: 'text',
       })
-      company_id: string;
+      company_id: any;
   }
   

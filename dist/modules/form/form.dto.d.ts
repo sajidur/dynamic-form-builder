@@ -1,4 +1,4 @@
 export declare class formDto {
-    readonly form_name: string;
-    readonly id: string;
+    form_name: string;
+    id: string;
 }

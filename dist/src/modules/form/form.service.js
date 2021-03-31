@@ -28,10 +28,10 @@ let FormService = class FormService {
         if (typeof id === 'string') {
             id = express_cassandra_1.uuid(id);
         }
-        return await this.forms.findOneAsync({ id }, { raw: true });
+        return await this.forms.findOneAsync({ app_id: express_cassandra_1.uuid('8f9de881-8fe7-11eb-ae00-d335f841c590'), id: id }, { raw: true });
     }
-    async createForm(form) {
-        const formModel = new this.forms(form);
+    async createForm(formDto) {
+        const formModel = new this.forms(formDto);
         formModel.app_id = express_cassandra_1.uuid(formModel.app_id);
         formModel.is_published = false;
         formModel.is_active = true;

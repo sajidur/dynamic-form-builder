@@ -1,4 +1,6 @@
+import { IsEmail, IsNotEmpty } from 'class-validator';
 export class formDto {
-    readonly form_name: string;
-    readonly id: string;
+    @IsNotEmpty()
+     form_name: string;
+     id: string;
   }

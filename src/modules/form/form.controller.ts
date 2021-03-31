@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Param, Put,Req  } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put,Req,ValidationPipe  } from '@nestjs/common';
 import { FormService } from './form.service';
 import { forms } from './form.Entity';
 import { formulasDto } from './formulasDto.dto';
+import { formDto } from './form.dto';
 
 import {
     ApiBearerAuth,
@@ -23,6 +24,8 @@ export class FormController {
 
     @Get('forms/:id')
     async getById(@Param('id') id: string) {
+        if (id=='')
+        return "Bad request Id should't empty";
         return this.formService.findById(id);
     }
     @Put('publish')
@@ -30,8 +33,8 @@ export class FormController {
         return this.formService.published(form);
     }
     @Post('create')
-    async create(@Body() form: forms) {
-        return this.formService.createForm(form);
+    async create(@Body() formDto: formDto) {
+        return this.formService.createForm(formDto);
     }
     @Get('formula/:formId')
     async formula_by_form_id(@Param('formId') formId:string){

@@ -16,7 +16,7 @@ export declare class questions {
     is_enable_score: boolean;
     each_item_calculation: boolean;
     weight_value: number;
-    app_id: string;
-    form_id: string;
-    company_id: string;
+    app_id: any;
+    form_id: any;
+    company_id: any;
 }

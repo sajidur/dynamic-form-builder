@@ -34,11 +34,11 @@ import {
       @Column({
         type: 'uuid',
       })
-      form_id: string;
+      form_id: any;
       @Column({
         type: 'uuid',
       })
-      question_id: string;
+      question_id: any;
 
     @Column({
       type: 'int',
@@ -65,13 +65,13 @@ import {
       is_pre_slected: boolean;
 
       @Column({
-        type: 'text',
+        type: 'uuid',
       })
-      app_id: string;
+      app_id: any;
     
     @Column({
-        type: 'text',
+        type: 'uuid',
       })
-      company_id: string;
+      company_id: any;
   }
   

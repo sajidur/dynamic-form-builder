@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { forms } from './form.Entity';
+import { formDto } from './form.dto';
+
 import {
   BaseModel,
   InjectModel,
@@ -7,6 +9,7 @@ import {
   InjectConnection,
 } from '@iaminfinity/express-cassandra';
 import { query } from 'express';
+import { formulasDto } from './formulasDto.dto';
 @Injectable()
 export class FormService {
     
@@ -26,11 +29,11 @@ export class FormService {
         if (typeof id === 'string') {
           id = uuid(id);
         }
-        return await this.forms.findOneAsync({ id }, { raw: true });
+        return await this.forms.findOneAsync({app_id:uuid('00000000-0000-0000-0000-000000000000'), id:id }, { raw: true });
       }
 
-    async createForm(form: forms): Promise<forms> {
-      const formModel = new this.forms(form);
+    async createForm(formDto: formDto): Promise<forms> {
+      const formModel = new this.forms(formDto);
       formModel.app_id=uuid(formModel.app_id);
       formModel.is_published=false;
       formModel.is_active=true

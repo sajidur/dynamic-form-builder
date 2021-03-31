@@ -1,13 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as helmet from 'helmet';
-
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import {ValidationPipe} from '@nestjs/common'
+import { from } from 'rxjs';
 declare const module: any;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(helmet());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  );
   const config = new DocumentBuilder()
     .setTitle('Form Builder API')
     .setDescription('The Form Builder API description')

@@ -33,13 +33,13 @@ __decorate([
     express_cassandra_1.Column({
         type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], options.prototype, "form_id", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], options.prototype, "question_id", void 0);
 __decorate([
     express_cassandra_1.Column({
@@ -73,15 +73,15 @@ __decorate([
 ], options.prototype, "is_pre_slected", void 0);
 __decorate([
     express_cassandra_1.Column({
-        type: 'text',
+        type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], options.prototype, "app_id", void 0);
 __decorate([
     express_cassandra_1.Column({
-        type: 'text',
+        type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], options.prototype, "company_id", void 0);
 options = __decorate([
     express_cassandra_1.Entity({

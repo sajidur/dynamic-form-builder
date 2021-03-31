@@ -115,21 +115,21 @@ __decorate([
 ], questions.prototype, "weight_value", void 0);
 __decorate([
     express_cassandra_1.Column({
-        type: 'text',
+        type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], questions.prototype, "app_id", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'uuid',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], questions.prototype, "form_id", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'text',
     }),
-    __metadata("design:type", String)
+    __metadata("design:type", Object)
 ], questions.prototype, "company_id", void 0);
 questions = __decorate([
     express_cassandra_1.Entity({

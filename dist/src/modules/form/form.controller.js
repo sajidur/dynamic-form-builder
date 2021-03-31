@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const form_service_1 = require("./form.service");
 const form_Entity_1 = require("./form.Entity");
 const formulasDto_dto_1 = require("./formulasDto.dto");
+const form_dto_1 = require("./form.dto");
 const swagger_1 = require("@nestjs/swagger");
 let FormController = class FormController {
     constructor(formService) {
@@ -26,13 +27,15 @@ let FormController = class FormController {
         return this.formService.getForm();
     }
     async getById(id) {
+        if (id == '')
+            return "Bad request Id should't empty";
         return this.formService.findById(id);
     }
     async publish(form) {
         return this.formService.published(form);
     }
-    async create(form) {
-        return this.formService.createForm(form);
+    async create(formDto) {
+        return this.formService.createForm(formDto);
     }
     async formula_by_form_id(formId) {
         var formulas = [];
@@ -70,7 +73,7 @@ __decorate([
     common_1.Post('create'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [form_Entity_1.forms]),
+    __metadata("design:paramtypes", [form_dto_1.formDto]),
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "create", null);
 __decorate([

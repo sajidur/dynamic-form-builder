@@ -1,6 +1,6 @@
 import { controlTypeDto } from "./controltype.dto";
 import { optionsDto } from "./options.dto";
-import { conditionsDto } from "./conditions.dto";
+import { conditionsDto } from "../../form/conditions.dto";
 import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class questionsDto {
@@ -11,9 +11,11 @@ export class questionsDto {
     controlType: controlTypeDto;
     parent_questions_id:string;
     questions_level:number;
+    @IsNotEmpty()
     is_mandatory:boolean;
     inputvalidation:string;
     is_condition:boolean;
+    @IsNotEmpty()
     form_id:string;
     order_no:number;
     set_formula:string;

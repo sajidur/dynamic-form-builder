@@ -1,6 +1,6 @@
 import { controlTypeDto } from "./controltype.dto";
 import { optionsDto } from "./options.dto";
-import { conditionsDto } from "./conditions.dto";
+import { conditionsDto } from "../../form/conditions.dto";
 export declare class questionsDto {
     id: string;
     code: string;

@@ -1,8 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { questions } from '../Questions/entity/questions.entity';
 import { options } from '../Questions/entity/options.entity';
-import { conditions } from '../Questions/entity/conditions.entity';
-
 import { questionsDto } from '../Questions/dto/questions.dto';
 
 import {
@@ -24,8 +22,6 @@ export class QuestionsService {
         private readonly questions: BaseModel<questions>,
         @InjectModel(options)
         private readonly options: BaseModel<options>,
-        @InjectModel(conditions)
-        private readonly conditions: BaseModel<conditions>,
       ) {}
 
     async findQuestionsById(id): Promise<questions[]> {
@@ -41,6 +37,7 @@ export class QuestionsService {
       option.form_id=timeuuid();
       return await option.saveAsync();
     }
+
     async createForm(questionDto: questionsDto): Promise<questions> {
       const questionModel = new this.questions(questionDto);
       questionModel.form_id=uuid(questionDto.form_id);

@@ -9,67 +9,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.forms = void 0;
+exports.conditions = void 0;
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
-let forms = class forms {
+let conditions = class conditions {
 };
 __decorate([
     express_cassandra_1.GeneratedUUidColumn(),
     __metadata("design:type", Object)
-], forms.prototype, "id", void 0);
+], conditions.prototype, "id", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'text',
     }),
     __metadata("design:type", String)
-], forms.prototype, "form_name", void 0);
-__decorate([
-    express_cassandra_1.Column({
-        type: 'text',
-    }),
-    __metadata("design:type", String)
-], forms.prototype, "descriptions", void 0);
+], conditions.prototype, "name", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'int',
     }),
     __metadata("design:type", Number)
-], forms.prototype, "questions_per_page", void 0);
+], conditions.prototype, "compare_value_to", void 0);
+__decorate([
+    express_cassandra_1.Column({
+        type: 'uuid',
+    }),
+    __metadata("design:type", Object)
+], conditions.prototype, "form_id", void 0);
+__decorate([
+    express_cassandra_1.Column({
+        type: 'int',
+    }),
+    __metadata("design:type", Number)
+], conditions.prototype, "order_no", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'text',
     }),
     __metadata("design:type", String)
-], forms.prototype, "header_image", void 0);
+], conditions.prototype, "logical_operator", void 0);
 __decorate([
     express_cassandra_1.Column({
-        type: 'boolean',
+        type: 'int',
     }),
-    __metadata("design:type", Boolean)
-], forms.prototype, "is_active", void 0);
+    __metadata("design:type", Number)
+], conditions.prototype, "compare_value_with", void 0);
 __decorate([
     express_cassandra_1.Column({
-        type: 'boolean',
+        type: 'int',
     }),
-    __metadata("design:type", Boolean)
-], forms.prototype, "is_published", void 0);
-__decorate([
-    express_cassandra_1.Column({
-        type: 'uuid',
-    }),
-    __metadata("design:type", Object)
-], forms.prototype, "app_id", void 0);
+    __metadata("design:type", Number)
+], conditions.prototype, "action_type", void 0);
 __decorate([
     express_cassandra_1.Column({
         type: 'uuid',
     }),
     __metadata("design:type", Object)
-], forms.prototype, "company_id", void 0);
-forms = __decorate([
+], conditions.prototype, "target_id", void 0);
+conditions = __decorate([
     express_cassandra_1.Entity({
-        table_name: 'forms',
-        key: [['app_id'], 'id'],
-        indexes: ['is_active', 'is_published'],
+        table_name: 'conditions',
+        key: [['target_id'], 'id'],
         options: {
             timestamps: {
                 createdAt: 'created_at',
@@ -80,6 +79,6 @@ forms = __decorate([
             },
         },
     })
-], forms);
-exports.forms = forms;
-//# sourceMappingURL=form.Entity.js.map
+], conditions);
+exports.conditions = conditions;
+//# sourceMappingURL=conditions.entity.js.map

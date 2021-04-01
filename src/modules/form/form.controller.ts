@@ -3,7 +3,7 @@ import { FormService } from './form.service';
 import { forms } from './form.Entity';
 import { formulasDto } from './formulasDto.dto';
 import { formDto } from './form.dto';
-
+import {conditionsDto} from './conditions.dto';
 import {
     ApiBearerAuth,
     ApiOperation,
@@ -41,6 +41,12 @@ export class FormController {
     async create(@Body() formDto: formDto) {
         return this.formService.createForm(formDto);
     }
+
+    @Post('/condition')
+    async addrules(@Body() condition: conditionsDto) {
+        return this.formService.createCondition(condition);
+     }
+
     @Get('formula/:formId')
     async formula_by_form_id(@Param('formId') formId:string){
         var formulas:formulasDto[]=[];

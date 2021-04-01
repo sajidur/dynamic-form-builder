@@ -18,7 +18,7 @@ const controltype_dto_1 = require("./dto/controltype.dto");
 const questions_dto_1 = require("./dto/questions.dto");
 const questions_service_1 = require("../Questions/questions.service");
 const swagger_1 = require("@nestjs/swagger");
-const conditions_dto_1 = require("./dto/conditions.dto");
+const conditions_dto_1 = require("../form/conditions.dto");
 const options_dto_1 = require("./dto/options.dto");
 let QuestionsController = class QuestionsController {
     constructor(questionService) {

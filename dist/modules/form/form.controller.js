@@ -18,6 +18,7 @@ const form_service_1 = require("./form.service");
 const form_Entity_1 = require("./form.Entity");
 const formulasDto_dto_1 = require("./formulasDto.dto");
 const form_dto_1 = require("./form.dto");
+const conditions_dto_1 = require("./conditions.dto");
 const swagger_1 = require("@nestjs/swagger");
 const control_type_1 = require("../Questions/control_type");
 let FormController = class FormController {
@@ -40,6 +41,9 @@ let FormController = class FormController {
     }
     async create(formDto) {
         return this.formService.createForm(formDto);
+    }
+    async addrules(condition) {
+        return this.formService.createCondition(condition);
     }
     async formula_by_form_id(formId) {
         var formulas = [];
@@ -86,6 +90,13 @@ __decorate([
     __metadata("design:paramtypes", [form_dto_1.formDto]),
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "create", null);
+__decorate([
+    common_1.Post('/condition'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [conditions_dto_1.conditionsDto]),
+    __metadata("design:returntype", Promise)
+], FormController.prototype, "addrules", null);
 __decorate([
     common_1.Get('formula/:formId'),
     __param(0, common_1.Param('formId')),

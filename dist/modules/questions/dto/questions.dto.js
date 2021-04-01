@@ -17,5 +17,13 @@ __decorate([
     class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
 ], questionsDto.prototype, "code", void 0);
+__decorate([
+    class_validator_1.IsNotEmpty(),
+    __metadata("design:type", Boolean)
+], questionsDto.prototype, "is_mandatory", void 0);
+__decorate([
+    class_validator_1.IsNotEmpty(),
+    __metadata("design:type", String)
+], questionsDto.prototype, "form_id", void 0);
 exports.questionsDto = questionsDto;
 //# sourceMappingURL=questions.dto.js.map

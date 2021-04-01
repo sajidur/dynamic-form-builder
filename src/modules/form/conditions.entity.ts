@@ -34,11 +34,7 @@ import {
       @Column({
         type: 'uuid',
       })
-      form_id: string;
-      @Column({
-        type: 'uuid',
-      })
-      question_id: string;
+      form_id: any;
 
     @Column({
       type: 'int',
@@ -62,16 +58,6 @@ import {
     @Column({
         type: 'uuid',
       })
-      target_id: string;
-
-      @Column({
-        type: 'text',
-      })
-      app_id: string;
-    
-    @Column({
-        type: 'text',
-      })
-      company_id: string;
+      target_id: any;
   }
   

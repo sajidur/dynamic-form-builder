@@ -11,12 +11,13 @@ const form_service_1 = require("./form.service");
 const form_controller_1 = require("./form.controller");
 const common_1 = require("@nestjs/common");
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
+const conditions_entity_1 = require("./conditions.entity");
 const form_Entity_1 = require("./form.Entity");
 let FormModule = class FormModule {
 };
 FormModule = __decorate([
     common_1.Module({
-        imports: [express_cassandra_1.ExpressCassandraModule.forFeature([form_Entity_1.forms]),],
+        imports: [express_cassandra_1.ExpressCassandraModule.forFeature([form_Entity_1.forms, conditions_entity_1.conditions]),],
         controllers: [form_controller_1.FormController],
         providers: [
             form_service_1.FormService

@@ -15,11 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormService = void 0;
 const common_1 = require("@nestjs/common");
 const form_Entity_1 = require("./form.Entity");
+const conditions_entity_1 = require("./conditions.entity");
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
 let FormService = class FormService {
-    constructor(connection, forms) {
+    constructor(connection, forms, conditions) {
         this.connection = connection;
         this.forms = forms;
+        this.conditions = conditions;
     }
     async getForm() {
         return await this.forms.findAsync({}, { raw: true });
@@ -29,6 +31,13 @@ let FormService = class FormService {
             id = express_cassandra_1.uuid(id);
         }
         return await this.forms.findOneAsync({ app_id: express_cassandra_1.uuid('00000000-0000-0000-0000-000000000000'), id: id }, { raw: true });
+    }
+    async createCondition(condition) {
+        const conditionModel = new this.conditions(condition);
+        conditionModel.id = express_cassandra_1.timeuuid();
+        conditionModel.form_id = express_cassandra_1.uuid(condition.form_id);
+        conditionModel.target_id = express_cassandra_1.uuid(condition.target_id);
+        return await conditionModel.saveAsync();
     }
     async createForm(formDto) {
         const formModel = new this.forms(formDto);
@@ -54,7 +63,8 @@ FormService = __decorate([
     common_1.Injectable(),
     __param(0, express_cassandra_1.InjectConnection()),
     __param(1, express_cassandra_1.InjectModel(form_Entity_1.forms)),
-    __metadata("design:paramtypes", [Object, Object])
+    __param(2, express_cassandra_1.InjectModel(conditions_entity_1.conditions)),
+    __metadata("design:paramtypes", [Object, Object, Object])
 ], FormService);
 exports.FormService = FormService;
 //# sourceMappingURL=form.service.js.map

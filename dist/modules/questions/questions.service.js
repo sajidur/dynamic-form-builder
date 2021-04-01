@@ -16,14 +16,12 @@ exports.QuestionsService = void 0;
 const common_1 = require("@nestjs/common");
 const questions_entity_1 = require("../Questions/entity/questions.entity");
 const options_entity_1 = require("../Questions/entity/options.entity");
-const conditions_entity_1 = require("../Questions/entity/conditions.entity");
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
 let QuestionsService = class QuestionsService {
-    constructor(connection, questions, options, conditions) {
+    constructor(connection, questions, options) {
         this.connection = connection;
         this.questions = questions;
         this.options = options;
-        this.conditions = conditions;
     }
     async findQuestionsById(id) {
         if (typeof id === 'string') {
@@ -66,8 +64,7 @@ QuestionsService = __decorate([
     __param(0, express_cassandra_1.InjectConnection()),
     __param(1, express_cassandra_1.InjectModel(questions_entity_1.questions)),
     __param(2, express_cassandra_1.InjectModel(options_entity_1.options)),
-    __param(3, express_cassandra_1.InjectModel(conditions_entity_1.conditions)),
-    __metadata("design:paramtypes", [Object, Object, Object, Object])
+    __metadata("design:paramtypes", [Object, Object, Object])
 ], QuestionsService);
 exports.QuestionsService = QuestionsService;
 //# sourceMappingURL=questions.service.js.map

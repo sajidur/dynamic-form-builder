@@ -9,7 +9,7 @@ import {
     ApiResponse,
     ApiTags,
   } from '@nestjs/swagger';
-import { conditionsDto } from './dto/conditions.dto';
+import { conditionsDto } from '../form/conditions.dto';
 import { optionsDto } from './dto/options.dto';
 
 @ApiTags('Questions API')

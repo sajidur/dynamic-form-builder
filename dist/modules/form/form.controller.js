@@ -19,12 +19,16 @@ const form_Entity_1 = require("./form.Entity");
 const formulasDto_dto_1 = require("./formulasDto.dto");
 const form_dto_1 = require("./form.dto");
 const swagger_1 = require("@nestjs/swagger");
+const control_type_1 = require("../Questions/control_type");
 let FormController = class FormController {
     constructor(formService) {
         this.formService = formService;
     }
     async getAllForm() {
         return this.formService.getForm();
+    }
+    async getAllControll() {
+        return control_type_1.ControllType;
     }
     async getById(id) {
         if (id == '')
@@ -55,6 +59,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], FormController.prototype, "getAllForm", null);
+__decorate([
+    common_1.Get('controll/getAll'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], FormController.prototype, "getAllControll", null);
 __decorate([
     common_1.Get('forms/:id'),
     __param(0, common_1.Param('id')),

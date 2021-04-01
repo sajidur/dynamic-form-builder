@@ -10,6 +10,8 @@ import {
     ApiResponse,
     ApiTags,
   } from '@nestjs/swagger';
+import { controlTypeDto } from '../questions/dto/controltype.dto';
+import { ControllType } from '../Questions/control_type';
 
 @ApiTags('Form API')
 @Controller('form')
@@ -21,7 +23,10 @@ export class FormController {
     async getAllForm(): Promise<forms[]> {
         return this.formService.getForm();
     }
-
+    @Get('controll/getAll')
+    async getAllControll() {
+       return ControllType;
+    }
     @Get('forms/:id')
     async getById(@Param('id') id: string) {
         if (id=='')

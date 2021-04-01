@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuestionsService = void 0;
 const common_1 = require("@nestjs/common");
 const questions_entity_1 = require("../Questions/entity/questions.entity");
+const options_entity_1 = require("../Questions/entity/options.entity");
+const conditions_entity_1 = require("../Questions/entity/conditions.entity");
 const express_cassandra_1 = require("@iaminfinity/express-cassandra");
 let QuestionsService = class QuestionsService {
     constructor(connection, questions, options, conditions) {
@@ -28,6 +30,13 @@ let QuestionsService = class QuestionsService {
             id = express_cassandra_1.uuid(id);
         }
         return await this.questions.findAsync({ form_id: express_cassandra_1.uuid('00000000-0000-0000-0000-000000000000') }, { raw: true });
+    }
+    async createOption(options) {
+        const option = new this.options(options);
+        option.id = express_cassandra_1.timeuuid();
+        option.question_id = express_cassandra_1.timeuuid();
+        option.form_id = express_cassandra_1.timeuuid();
+        return await option.saveAsync();
     }
     async createForm(questionDto) {
         const questionModel = new this.questions(questionDto);
@@ -44,8 +53,7 @@ let QuestionsService = class QuestionsService {
             option.form_id = questionModel.form_id;
             option.app_id = questionModel.app_id;
             option.company_id = questionModel.company_id;
-            optionsList.push(option);
-            option.saveAsync();
+           return await option.saveAsync();
         }
         for (var i = 0; i < questionDto.options.length; i++) {
         }
@@ -57,8 +65,8 @@ QuestionsService = __decorate([
     common_1.Injectable(),
     __param(0, express_cassandra_1.InjectConnection()),
     __param(1, express_cassandra_1.InjectModel(questions_entity_1.questions)),
-    __param(2, express_cassandra_1.InjectModel(questions_entity_1.questions)),
-    __param(3, express_cassandra_1.InjectModel(questions_entity_1.questions)),
+    __param(2, express_cassandra_1.InjectModel(options_entity_1.options)),
+    __param(3, express_cassandra_1.InjectModel(conditions_entity_1.conditions)),
     __metadata("design:paramtypes", [Object, Object, Object, Object])
 ], QuestionsService);
 exports.QuestionsService = QuestionsService;

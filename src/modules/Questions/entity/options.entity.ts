@@ -63,15 +63,5 @@ import {
         type: 'boolean',
       })
       is_pre_slected: boolean;
-
-      @Column({
-        type: 'uuid',
-      })
-      app_id: any;
-    
-    @Column({
-        type: 'uuid',
-      })
-      company_id: any;
   }
   

@@ -9,6 +9,4 @@ export declare class options {
     is_mandatory: boolean;
     is_condition: boolean;
     is_pre_slected: boolean;
-    app_id: any;
-    company_id: any;
 }

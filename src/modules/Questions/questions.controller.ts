@@ -105,4 +105,9 @@ export class QuestionsController {
         return this.questionService.createForm(questionsDto);
         return questionsDto;   
      }
+     @Post('option/add')
+    async addoption(@Body() options: optionsDto) {
+        return this.questionService.createOption(options);
+        return questionsDto;   
+     }
 }

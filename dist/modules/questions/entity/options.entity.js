@@ -71,18 +71,6 @@ __decorate([
     }),
     __metadata("design:type", Boolean)
 ], options.prototype, "is_pre_slected", void 0);
-__decorate([
-    express_cassandra_1.Column({
-        type: 'uuid',
-    }),
-    __metadata("design:type", Object)
-], options.prototype, "app_id", void 0);
-__decorate([
-    express_cassandra_1.Column({
-        type: 'uuid',
-    }),
-    __metadata("design:type", Object)
-], options.prototype, "company_id", void 0);
 options = __decorate([
     express_cassandra_1.Entity({
         table_name: 'options',

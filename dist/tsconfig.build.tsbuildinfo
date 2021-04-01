@@ -1652,8 +1652,8 @@
         "affectsGlobalScope": false
       },
       "../src/modules/questions/entity/options.entity.ts": {
-        "version": "1abe1dcd7d5582fcd0b2335ee002616e74c068a15f42b7cb9edb75642c90d652",
-        "signature": "13efd519aa05459db92ad7bdcd28fe8d04775fc0f267451c282709de6037961b",
+        "version": "42db6e7551953b2ed3692f63964d1fce5703979e7fb95a0c8a4479ca0691c17f",
+        "signature": "36b52c6fad2f9734b4f6a77e11f77aed45dcff68accb824b8e5588829dacc9dd",
         "affectsGlobalScope": false
       },
       "../src/app.service.ts": {
@@ -2562,13 +2562,13 @@
         "affectsGlobalScope": false
       },
       "../src/modules/questions/questions.service.ts": {
-        "version": "25e7c8f3fbf38db86c034f958b503778ea452b2aff22dc72dcd62c3e4ae7ef76",
-        "signature": "c081f8bbfd492473ed144ae800a1e487425697f170a713c9eaae878b0bf5110b",
+        "version": "cf46f1c0bf35120f5392576686ba86bf30ddbe592c64cf87982a54803fbd7c8a",
+        "signature": "9fde4e27ba0d7541259adb3286c3cc73c80835915c327df620b01f2073f593fb",
         "affectsGlobalScope": false
       },
       "../src/modules/questions/questions.controller.ts": {
-        "version": "500153af3060893de897883fa9f4b5e1b40ac37c45573fae340aff324d55417a",
-        "signature": "c9200edddd1eb90274ffa49a268d9fcacd6128bcda91fd55d323629d4600e5fe",
+        "version": "327d703986df4efaa8e3da9dd449774fdb315745d87c683221b32440abae2254",
+        "signature": "4658f2018c44e4ed4de7a7e9156a046be843c1e9765f71990bc99b85940baa8a",
         "affectsGlobalScope": false
       },
       "../src/modules/questions/questions.module.ts": {
@@ -5372,6 +5372,7 @@
         "../node_modules/@iaminfinity/express-cassandra/index.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts",
+        "../src/modules/questions/dto/options.dto.ts",
         "../src/modules/questions/dto/questions.dto.ts",
         "../src/modules/questions/entity/conditions.entity.ts",
         "../src/modules/questions/entity/options.entity.ts",
@@ -7531,12 +7532,15 @@
         "../src/modules/questions/dto/options.dto.ts"
       ],
       "../src/modules/questions/questions.controller.ts": [
+        "../src/modules/questions/dto/options.dto.ts",
         "../src/modules/questions/dto/questions.dto.ts",
+        "../src/modules/questions/entity/options.entity.ts",
         "../src/modules/questions/entity/questions.entity.ts",
         "../src/modules/questions/questions.service.ts"
       ],
       "../src/modules/questions/questions.service.ts": [
         "../node_modules/@iaminfinity/express-cassandra/index.d.ts",
+        "../src/modules/questions/dto/options.dto.ts",
         "../src/modules/questions/dto/questions.dto.ts",
         "../src/modules/questions/entity/conditions.entity.ts",
         "../src/modules/questions/entity/options.entity.ts",

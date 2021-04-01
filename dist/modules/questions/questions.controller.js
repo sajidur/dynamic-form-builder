@@ -102,6 +102,10 @@ let QuestionsController = class QuestionsController {
         return this.questionService.createForm(questionsDto);
         return questionsDto;
     }
+    async addoption(options) {
+        return this.questionService.createOption(options);
+        return questions_dto_1.questionsDto;
+    }
 };
 __decorate([
     common_1.Get('getAll'),
@@ -130,6 +134,13 @@ __decorate([
     __metadata("design:paramtypes", [questions_dto_1.questionsDto]),
     __metadata("design:returntype", Promise)
 ], QuestionsController.prototype, "create", null);
+__decorate([
+    common_1.Post('option/add'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [options_dto_1.optionsDto]),
+    __metadata("design:returntype", Promise)
+], QuestionsController.prototype, "addoption", null);
 QuestionsController = __decorate([
     swagger_1.ApiTags('Questions API'),
     common_1.Controller('questions'),

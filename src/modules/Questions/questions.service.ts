@@ -13,6 +13,7 @@ import {
   InjectConnection,
 } from '@iaminfinity/express-cassandra';
 import { query } from 'express';
+import { optionsDto } from './dto/options.dto';
 @Injectable()
 export class QuestionsService {
     
@@ -21,9 +22,9 @@ export class QuestionsService {
         private readonly connection: any,
         @InjectModel(questions)
         private readonly questions: BaseModel<questions>,
-        @InjectModel(questions)
+        @InjectModel(options)
         private readonly options: BaseModel<options>,
-        @InjectModel(questions)
+        @InjectModel(conditions)
         private readonly conditions: BaseModel<conditions>,
       ) {}
 
@@ -33,7 +34,13 @@ export class QuestionsService {
         }
         return await this.questions.findAsync({form_id:uuid('00000000-0000-0000-0000-000000000000')}, { raw: true });
       }
-
+    async createOption(options:optionsDto):Promise<options>{
+      const option=new this.options(options);
+      option.id=timeuuid();
+      option.question_id=timeuuid();
+      option.form_id=timeuuid();
+      return await option.saveAsync();
+    }
     async createForm(questionDto: questionsDto): Promise<questions> {
       const questionModel = new this.questions(questionDto);
       questionModel.form_id=uuid(questionDto.form_id);
